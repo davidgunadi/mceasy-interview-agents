@@ -2,7 +2,7 @@
 name: summarize
 description: >
   Generates a hire summary for a candidate and saves it as summary.md in their folder.
-  Use this skill whenever the user runs `/summarize [role-name] [candidate-name]`, or asks
+  Use this skill whenever the user runs `/summarize [candidate-name]`, or asks
   to generate a summary, produce a hire decision, or create summary.md for a candidate.
 ---
 
@@ -17,8 +17,11 @@ with a hire rating (1–10), YES/NO decision, executive summary, and evidence-ba
 
 ## Step 1: Validate inputs
 
-- Extract role name and candidate name from the skill arguments
-- If either is missing, ask the user to provide them before continuing
+- Extract the candidate name from the skill arguments — if missing, ask the user to provide it
+- Search all `roles/*/[candidate-name]/` folders for a match:
+  - If found under exactly one role, use that role
+  - If found under multiple roles, list the matching roles and ask the user which one they mean
+  - If not found under any role, tell the user and stop
 - Check that `roles/[role-name]/[candidate-name]/questions.md` exists — stop and tell the
   user to run `/review-interview` first if it is missing or empty
 

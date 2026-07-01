@@ -41,18 +41,18 @@ Create `roles/[role-name]/[candidate-name]/cv.md` or `cv.pdf` with the candidate
 
 **3. Generate tailored questions**
 
-Run the same skill, this time with the candidate name. Claude reads the JD and CV and produces a question set with a technical rubric specific to this candidate's background.
+Run the same skill, this time with just the candidate name. Claude finds which role the candidate belongs to, then reads the JD and CV and produces a question set with a technical rubric specific to this candidate's background. If a candidate with that name exists under more than one role, Claude will ask you to pick which one.
 
 ```
-/setup [role-name] [candidate-name]
+/setup [candidate-name]
 ```
 
 **4. Fill in answers post-interview**
 
-Run the review skill with the Fireflies recording name. Claude pulls the transcript and fills in every answer field and outcome checkbox in `questions.md`. Requires the Fireflies connector to be authorized.
+Run the review skill with the candidate name and the Fireflies recording name. Claude pulls the transcript and fills in every answer field and outcome checkbox in `questions.md`. Requires the Fireflies connector to be authorized.
 
 ```
-/review-interview [role-name] [candidate-name] [recording-name]
+/review-interview [candidate-name] [recording-name]
 ```
 
 **5. Generate the hire summary**
@@ -60,7 +60,7 @@ Run the review skill with the Fireflies recording name. Claude pulls the transcr
 Claude reads the completed `questions.md` and produces `summary.md` in the candidate's folder with a hire rating, YES/NO decision, executive summary, and evidence-backed pros/cons.
 
 ```
-/summarize [role-name] [candidate-name]
+/summarize [candidate-name]
 ```
 
 ## Rating scale

@@ -2,7 +2,7 @@
 name: review-interview
 description: >
   Reviews a Fireflies recording for a candidate and fills in their questions.md.
-  Use this skill whenever the user runs `/review-interview [role-name] [candidate-name] [recording-name]`,
+  Use this skill whenever the user runs `/review-interview [candidate-name] [recording-name]`,
   or asks to review a Fireflies transcript, fill in interview answers, or populate questions.md
   from a recording. The user must have the Fireflies connector authorized in Claude.
 ---
@@ -21,8 +21,11 @@ tell the user to connect it via their claude.ai connector settings before procee
 
 ## Step 1: Identify the candidate
 
-- Extract role name, candidate name, and recording name from the skill arguments
-- If any are missing, ask the user to provide them before continuing
+- Extract candidate name and recording name from the skill arguments — if either is missing, ask the user to provide it
+- Search all `roles/*/[candidate-name]/` folders for a match:
+  - If found under exactly one role, use that role
+  - If found under multiple roles, list the matching roles and ask the user which one they mean
+  - If not found under any role, tell the user and stop
 - Confirm the target file: `roles/[role-name]/[candidate-name]/questions.md`
 - Stop if `questions.md` does not exist — tell the user to run `/setup` first
 
@@ -50,4 +53,4 @@ and instructions for how to assess and fill in answers.
 ## Finishing up
 
 Confirm to the user that `questions.md` has been filled in, and suggest running
-`/create-summary [role-name] [candidate-name]` as the next step.
+`/summarize [candidate-name]` as the next step.
