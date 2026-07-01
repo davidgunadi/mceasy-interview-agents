@@ -38,8 +38,8 @@ Four agent prompts live in `.claude/agents/`. Skills invoke these automatically 
 
 ## Workflow
 
-1. Add a role: create `roles/[role-name]/_jd.md`, then run `/generate-questions [role-name]`
+1. Add a role: create `roles/[role-name]/_jd.md`, then run `/setup [role-name]`
 2. Add a candidate: create `roles/[role-name]/[candidate-name]/cv.md`
-3. Generate tailored questions: run `/generate-questions [role-name] [candidate-name]`
+3. Generate tailored questions: run `/setup [role-name] [candidate-name]`
 4. Post-interview: run `/review-fireflies [role-name] [candidate-name] [recording-name]` — requires Fireflies connector
 5. Generate summary: run `/summarize [role-name] [candidate-name]`

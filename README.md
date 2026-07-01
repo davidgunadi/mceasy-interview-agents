@@ -32,7 +32,7 @@ roles/
 Create `roles/[role-name]/_jd.md` with the job description, then ask Claude to generate `_questions.md` from it.
 
 ```
-/generate-questions [role-name]
+/setup [role-name]
 ```
 
 **2. Add a candidate**
@@ -44,7 +44,7 @@ Create `roles/[role-name]/[candidate-name]/cv.md` or `cv.pdf` with the candidate
 Run the same skill, this time with the candidate name. Claude reads the JD and CV and produces a question set with a technical rubric specific to this candidate's background.
 
 ```
-/generate-questions [role-name] [candidate-name]
+/setup [role-name] [candidate-name]
 ```
 
 **4. Fill in answers post-interview**

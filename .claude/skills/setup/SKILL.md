@@ -1,8 +1,8 @@
 ---
-name: generate-questions
+name: setup
 description: >
   Generates interview question files for a role in this repo. Use this skill whenever
-  the user runs `/generate-questions [role-name]`, or asks to generate, create, or produce
+  the user runs `/setup [role-name]`, or asks to generate, create, or produce
   interview questions for a role or candidate. Also trigger when the user says things like
   "generate questions for Alice", "prep questions for the backend role", "create questions.md
   for [candidate]", or "set up questions for [role]".
