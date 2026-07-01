@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code local settings (personal, not shared)
+.claude/settings.local.json
+
+# Sensitive candidate data (opt-in to track by removing these lines)
+# roles/**/cv.md
+# roles/**/questions.md
+# roles/**/summary.md
