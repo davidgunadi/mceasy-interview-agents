@@ -1,3 +1,10 @@
+---
+name: create-summary
+description: Use after `questions.md` is fully filled in by the Interview Reviewer. Weighs rubric scores, flags, and soft-skill assessments into a hire rating, decision, and pros/cons — saved as `summary.md`.
+model: opus
+tools: Read, Write
+---
+
 # Agent: Create Summary
 
 ## Persona

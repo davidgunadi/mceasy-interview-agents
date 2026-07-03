@@ -1,3 +1,10 @@
+---
+name: question-generator
+description: Use after a candidate's `cv.md` or `cv.pdf` is added. Reads the role's `_jd.md` and the candidate's CV to generate a tailored `questions.md`.
+model: sonnet
+tools: Read, Write
+---
+
 # Agent: Question Generator
 
 ## Persona
