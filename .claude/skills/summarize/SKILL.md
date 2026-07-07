@@ -29,12 +29,11 @@ with a hire rating (1–10), YES/NO decision, executive summary, and evidence-ba
 
 ## Step 2: Generate summary.md
 
-Read `.claude/agents/create-summary.md` — it contains your persona, rating rubric, and
-the exact output format for `summary.md`.
+Invoke the Agent tool with `subagent_type: "create-summary"` and a self-contained prompt telling it to:
 
 - Read `roles/[role-name]/[candidate-name]/questions.md`
-- Follow `.claude/agents/create-summary.md` to derive the rating and write the summary
-- Save to `roles/[role-name]/[candidate-name]/summary.md`
+- Derive the Technical and Behavioral ratings/decisions per its own rubric
+- Save the result to `roles/[role-name]/[candidate-name]/summary.md`
 
 ---
 

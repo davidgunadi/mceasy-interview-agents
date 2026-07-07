@@ -36,32 +36,31 @@ The skill takes a single name argument, which can be either a role or a candidat
 
 ## Step 1: Generate `_questions.md` (if missing)
 
-Read `.claude/agents/role-setup.md` — it contains your persona, output format, and instructions.
-
 - Check if `roles/[role-name]/_questions.md` exists
 - If it does **not** exist:
-  - Read `roles/[role-name]/_jd.md` (stop and tell the user if it's missing)
-  - Follow `.claude/agents/role-setup.md` to generate the master template
-  - Save to `roles/[role-name]/_questions.md`
-  - Confirm to the user
+  - Stop and tell the user if `roles/[role-name]/_jd.md` is missing
+  - Invoke the Agent tool with `subagent_type: "role-setup"` and a self-contained prompt telling it to:
+    - Read `roles/[role-name]/_jd.md` and `roles/_behavioral_question_bank.md`
+    - Generate the master template per its own instructions
+    - Save the result to `roles/[role-name]/_questions.md`
+  - Confirm to the user once the agent reports back
 - If it already exists, skip this step silently and move on
 
 ---
 
 ## Step 2: Generate candidate `questions.md` files
 
-Read `.claude/agents/question-generator.md` — it contains your persona, output format, and instructions for candidate-tailored questions.
-
 - If resolving a single candidate (Step 0 found one match), process only that candidate
-- Otherwise, list all subdirectories of `roles/[role-name]/` that contain a `cv.md`
+- Otherwise, list all subdirectories of `roles/[role-name]/` that contain a `cv.md` or `cv.pdf`
 - Skip any candidate folder that already has a `questions.md` — unless the user explicitly asked to regenerate
 - If no candidates are found (or all already have `questions.md`), tell the user
-- For each candidate to process:
-  - Read `roles/[role-name]/[candidate-name]/cv.md`
-  - Read `roles/[role-name]/_jd.md` and `roles/[role-name]/_questions.md` for context
-  - Follow `.claude/agents/question-generator.md` to generate the tailored question file
-  - Save to `roles/[role-name]/[candidate-name]/questions.md`
-  - Confirm to the user when done
+- For each candidate to process, invoke the Agent tool with `subagent_type: "question-generator"` and a self-contained prompt giving it:
+  - `roles/[role-name]/_jd.md`
+  - `roles/[role-name]/_questions.md`
+  - `roles/[role-name]/[candidate-name]/cv.md` or `cv.pdf` (whichever exists)
+  - the output path `roles/[role-name]/[candidate-name]/questions.md`
+  - Independent candidates can be dispatched in parallel (multiple Agent calls in one message) since each is a separate subagent context
+- Confirm to the user when each agent reports back
 
 ---
 

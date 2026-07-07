@@ -41,12 +41,12 @@ tell the user to connect it via their claude.ai connector settings before procee
 
 ## Step 3: Fill in questions.md
 
-Read `.claude/agents/fireflies-reviewer.md` — it contains your persona, scoring criteria,
-and instructions for how to assess and fill in answers.
+Invoke the Agent tool with `subagent_type: "fireflies-reviewer"` and a self-contained prompt telling it to:
 
 - Read `roles/[role-name]/[candidate-name]/questions.md`
-- Follow `.claude/agents/fireflies-reviewer.md` to populate every blank field
-- Save the updated file in place
+- Search for and retrieve the Fireflies transcript matching [recording-name] (it has direct access to the Fireflies MCP tools)
+- Populate every blank field per its own scoring criteria, without overwriting already-filled fields
+- Save the updated file in place at `roles/[role-name]/[candidate-name]/questions.md`
 
 ---
 

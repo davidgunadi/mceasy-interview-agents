@@ -6,6 +6,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/); version
 
 Adding a new role, candidate, JD, or CV is not a functional change to the tool and is not logged here.
 
+## [2.1.0] - 2026-07-07
+
+### Changed
+- `setup`, `review-interview`, and `summarize` skills now dispatch `role-setup`, `question-generator`, `fireflies-reviewer`, and `create-summary` as real subagents via the Agent tool (`subagent_type`), instead of telling the main session to read the agent file and act it out inline. This means each agent's `model:` and `tools:` frontmatter (e.g. `fireflies-reviewer` on Opus with only Fireflies MCP tools, others on Sonnet) is actually honored, and independent candidates can be generated in parallel.
+
 ## [2.0.3] - 2026-07-07
 
 ### Changed
