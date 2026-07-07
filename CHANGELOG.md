@@ -6,6 +6,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/); version
 
 Adding a new role, candidate, JD, or CV is not a functional change to the tool and is not logged here.
 
+## [2.0.3] - 2026-07-07
+
+### Changed
+- Moved `scripts/` out from under `.claude/` to the repo root, parallel to `.claude/`, matching layout conventions used in other repos. `md_to_pdf.py` is now invoked as `scripts/md_to_pdf.py`.
+
 ## [2.0.2] - 2026-07-07
 
 ### Fixed

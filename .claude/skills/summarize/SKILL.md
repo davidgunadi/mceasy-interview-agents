@@ -43,7 +43,7 @@ the exact output format for `summary.md`.
 Run this to generate a matching `summary.pdf` next to the markdown file:
 
 ```
-python3 .claude/scripts/md_to_pdf.py roles/[role-name]/[candidate-name]/summary.md roles/[role-name]/[candidate-name]/summary.pdf
+python3 scripts/md_to_pdf.py roles/[role-name]/[candidate-name]/summary.md roles/[role-name]/[candidate-name]/summary.pdf
 ```
 
 If the script fails (e.g. `reportlab` not installed), tell the user `summary.md` was

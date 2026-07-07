@@ -55,7 +55,7 @@ and instructions for how to assess and fill in answers.
 Run this to generate a matching `questions.pdf` next to the markdown file:
 
 ```
-python3 .claude/scripts/md_to_pdf.py roles/[role-name]/[candidate-name]/questions.md roles/[role-name]/[candidate-name]/questions.pdf
+python3 scripts/md_to_pdf.py roles/[role-name]/[candidate-name]/questions.md roles/[role-name]/[candidate-name]/questions.pdf
 ```
 
 If the script fails (e.g. `reportlab` not installed), tell the user `questions.md` was
