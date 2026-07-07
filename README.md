@@ -4,6 +4,17 @@
 
 A Claude-powered hiring system for managing end-to-end interviews at McEasy — from job descriptions to hire/no-hire decisions.
 
+## Prerequisites
+
+- [Git](https://git-scm.com/install/)
+- [Python](https://www.python.org/downloads/)
+- [Node](https://nodejs.org/en/download)
+
+Optional:
+
+- [GitHub Desktop](https://desktop.github.com/download/)
+- [VSCode](https://code.visualstudio.com/download)
+
 ## How it works
 
 Four Claude agents handle distinct phases of the hiring pipeline:
