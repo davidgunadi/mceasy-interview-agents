@@ -13,7 +13,6 @@ Score each dimension 1–5 after the interview. Pull evidence from answers.
 | Functional / Regression / UAT Testing | High | | |
 | API Testing (Postman) | High | | |
 | Test Documentation (Scenarios, Cases, Bug Reports) | High | | |
-| SQL for Data Validation (PostgreSQL) | High | | |
 | Git + Agile/Scrum | Med | | |
 | Odoo / ERP Business Flow Knowledge (CRM, Sales, Purchase, Inventory, Accounting) | Med | | |
 
@@ -87,22 +86,7 @@ Standard questions for this role, not tailored to any specific candidate.
 
 ---
 
-### Q5: Walk me through a SQL query you'd write to validate data integrity after a business flow — for example, after creating a sales order through to invoicing in Odoo.
-
-**What a good answer looks like:**
-- Can write a JOIN across relevant tables (e.g., `sale_order`, `account_move`, `account_move_line`)
-- Uses SQL to verify amounts match, statuses are correct, and records were created as expected
-- Understands why database-level validation matters beyond what the UI shows
-- Can explain what they're looking for and why — not just reciting syntax
-
-**Red flags:**
-- Cannot produce a query beyond `SELECT * FROM table`
-- No concept of cross-table validation or what "data integrity" means in a relational context
-- Has never used SQL to validate testing outcomes — relies only on UI
-
----
-
-### Q6: How do you run UAT with business stakeholders who aren't technical? What documentation do you prepare, and how do you manage defect triage with them?
+### Q5: How do you run UAT with business stakeholders who aren't technical? What documentation do you prepare, and how do you manage defect triage with them?
 
 **What a good answer looks like:**
 - Prepares test scripts in plain business language, not technical QA jargon
